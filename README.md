@@ -11,8 +11,7 @@ httpd.conf setting
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-# RewriteRule /REST_API/api(.*)$ /REST_API/library/API.php?request=$1 [QSA,NC,L]
- RewriteRule /REST_API/(.*)$ /REST_API/public_html/index.php?request=$1 [QSA,NC,L]
+RewriteRule /REST_API/(.*)$ /REST_API/public_html/index.php?request=$1 [QSA,NC,L]
 </IfModule>
 
 ========
