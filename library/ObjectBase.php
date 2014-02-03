@@ -2,7 +2,7 @@
 
 require_once(dirname(__FILE__) . '/MySQLConnection.php');
 
-abstract class BaseObject {
+abstract class ObjectBase {
 
 	private static $db;
 	public $type;

@@ -6,9 +6,9 @@
  * and open the template in the editor.
  */
 
-require_once(dirname(__FILE__) . '/../library/BaseObject.php');
+require_once(dirname(__FILE__) . '/../library/ObjectBase.php');
 
-class DummyDataClass extends BaseObject {
+class DummyDataClass extends ObjectBase {
 
 	private static $reference_data = Array(
 		'appId' => 126767144061773,

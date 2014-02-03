@@ -1,8 +1,8 @@
 <?php
 
-require_once(dirname(__FILE__) . '/../library/BaseObject.php');
+require_once(dirname(__FILE__) . '/../library/ObjectBase.php');
 
-class User extends BaseObject {
+class User extends ObjectBase {
 
 	public $user_id;
 	public $user_country;
@@ -105,7 +105,7 @@ class User extends BaseObject {
 		$db = self::getDB();
 
 		$query = "
-				SELECT u.user_id, SUM(au.user_score) FROM app_user au 
+				SELECT u.user_id, u.user_country, user_locale, user_age, created_on,SUM(au.user_score) as user_score FROM app_user au 
 				JOIN user u ON u.user_id = au.user_id 
 				GROUP BY u.user_id
 				ORDER BY au.user_score DESC
@@ -117,6 +117,7 @@ class User extends BaseObject {
 		}
 
 		$users = $db->fetch_all();
+		
 
 		if (!empty($users)) {
 			return $users;
