@@ -28,3 +28,7 @@ CREATE TABLE `app_user` (
   `created_on` datetime NOT NULL,
   PRIMARY KEY (`app_id`,`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+ALTER TABLE `app_user` ADD INDEX (`app_id`);
+ALTER TABLE `app_user` ADD INDEX (`user_id`);
+ALTER TABLE `app_user` ADD INDEX (`created_on`);
