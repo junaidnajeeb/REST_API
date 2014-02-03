@@ -10,10 +10,6 @@ class User extends BaseObject {
 	public $user_age;
 	public $created_on;
 
-	public function __construct($data = array()) {
-		parent::__construct($data);
-	}
-
 	/**
 	 * 
 	 * @param int $id
