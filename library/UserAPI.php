@@ -15,7 +15,7 @@ class UserAPI extends API {
 		parent::__construct($request);
 	}
 
-	protected function total_players() {
+	public function total_players() {
 
 		$error = '';
 		if ($this->method == 'GET') {
@@ -34,7 +34,7 @@ class UserAPI extends API {
 	 * 
 	 * @return string
 	 */
-	protected function total_players_played_today() {
+	public function total_players_played_today() {
 
 		$error = '';
 		if ($this->method == 'GET') {
@@ -53,7 +53,7 @@ class UserAPI extends API {
 	 * 
 	 * @return string
 	 */
-	protected function total_10_players() {
+	public function total_10_players() {
 
 		$error = '';
 		if ($this->method == 'GET') {
@@ -72,7 +72,7 @@ class UserAPI extends API {
 	 * 
 	 * @return string
 	 */
-	protected function total_10_improved_players() {
+	public function total_10_improved_players() {
 
 		$error = '';
 		if ($this->method == 'GET') {
