@@ -7,7 +7,7 @@ and open the template in the editor.
 -->
 
 <?php
-require_once(dirname(__FILE__) . '/../library/UserAPI.php');
+require_once(dirname(__FILE__) . '/../library/APIFactory.php');
 ?>
 <html>
     <head>
@@ -17,7 +17,7 @@ require_once(dirname(__FILE__) . '/../library/UserAPI.php');
     <body>
 		<?php
 		try {
-			$API = new UserAPI($_REQUEST['request']);
+			$API = APIFactory::createAPI($_REQUEST['request']);
 			$response = $API->processAPI();
 		} catch (Exception $e) {
 			echo json_encode(array('error' => $e->getMessage()));
