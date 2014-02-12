@@ -105,7 +105,7 @@ class User extends ObjectBase {
 		$db = self::getDB();
 
 		$query = "
-				SELECT u.user_id, u.user_country, user_locale, user_age, created_on,SUM(au.user_score) as user_score FROM app_user au 
+				SELECT u.user_id, u.user_country, user_locale, user_age, au.created_on,SUM(au.user_score) as user_score FROM app_user au 
 				JOIN user u ON u.user_id = au.user_id 
 				GROUP BY u.user_id
 				ORDER BY au.user_score DESC
