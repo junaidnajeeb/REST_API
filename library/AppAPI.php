@@ -29,7 +29,7 @@ class AppAPI extends API {
 
 				try {
 					$app_obj->save();
-					return 'app saved';
+					return 'app created';
 				} catch (Exception $ex) {
 					return $ex->getMessage();
 				}
@@ -38,6 +38,32 @@ class AppAPI extends API {
 			}
 		} else {
 			return "Only accepts POST requests";
+		}
+	}
+	
+	public function update_app() {
+
+		if ($this->method == 'PUT') {
+			$app_id = (!empty($this->request['app_id'])) ? $this->request['app_id'] : '';
+			$secret = (!empty($this->request['secret'])) ? $this->request['secret'] : '';
+
+			if (!empty($app_id) && !empty($secret)) {
+				$app_obj = new App(array(
+					'app_id' => $app_id,
+					'app_secret' => $secret,
+				));
+
+				try {
+					$app_obj->save();
+					return 'app updated';
+				} catch (Exception $ex) {
+					return $ex->getMessage();
+				}
+			} else {
+				return "Invalid input sent";
+			}
+		} else {
+			return "Only accepts PUT requests";
 		}
 	}
 }

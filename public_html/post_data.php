@@ -21,3 +21,22 @@ $server_output = curl_exec($ch);
 
 var_dump($server_output);
 curl_close($ch);
+
+
+$ch = curl_init();
+
+curl_setopt($ch, CURLOPT_URL, "localhost:8888/REST_API/update_app");
+curl_setopt($ch, CURLOPT_VERBOSE, 1);
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+
+curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query(array('app_id' => '126767144061774', 'secret' => '21db65a65e204cca7b5afcbad91fea60')));
+
+// receive server response ...
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+$server_output = curl_exec($ch);
+
+var_dump($server_output);
+curl_close($ch);
